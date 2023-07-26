@@ -99,6 +99,42 @@
           }
         }
       }
+    },
+    "Libreria-Europcar": {
+      "projectType": "library",
+      "root": "projects/libreria-europcar",
+      "sourceRoot": "projects/libreria-europcar/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/libreria-europcar/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/libreria-europcar/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/libreria-europcar/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/libreria-europcar/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
