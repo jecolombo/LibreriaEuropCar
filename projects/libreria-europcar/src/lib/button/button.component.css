@@ -1,20 +1,57 @@
 button {
     padding: 8px 16px;
-    border-radius: 4px;
+    border-radius: 25px;
     cursor: pointer;
+    font-weight: 600;
 }
   
 .default {
-    background-color: #007bff;
+    background-color: white;
+    color: black;
+}
+.default:hover {
+    background-color: black;
+    color: white;
+}  
+.salva {
+    background-color: #0cbc3bcd;
     color: #fff;
 }
-  
-.salva {
-    background-color: #1aff00;
-    color: #fff;
+.salva:hover {
+    background-color: white;
+    color: #14bd41f9;
 }
   
 .indietro {
-    background-color: #fb0505;
+    background-color: #ffa109;
     color: #fff;
+}
+.indietro:hover {
+    background-color:white;
+    color:  #ffa109;
+}
+.aggiungi {
+    background-color: #256edbe7;
+    color: #fff;
+}
+.aggiungi:hover {
+    background-color: white;
+    color: #256edb;
+}
+.alert {
+    background-color: #db2525e7;
+    color: #fff;
+    border-radius: 5px;
+}
+.alert:hover {
+    background-color: #fff;
+    color: #db2525;
+}
+.barbie {
+    background-color: #db25c3c4;
+    color: #fff;
+}
+.barbie:hover {
+    background-color: #fff;
+    color: #db25c3c4;
 }
