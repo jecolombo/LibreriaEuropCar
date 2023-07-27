@@ -11,8 +11,13 @@ export class ButtonComponent {
 
   ngOnInit() {
     if (!this.label) {
-      this.label = this.type.toUpperCase();
+      this.label = this.toTitleCase(this.type);
     }
   }
-
+  toTitleCase(input: string): string {
+    return input.replace(/\b\w+/g, (word) => {
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    });
+  }
+  
 }
