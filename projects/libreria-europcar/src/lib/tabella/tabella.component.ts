@@ -1,27 +1,29 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild, OnChanges, SimpleChanges, ContentChildren } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { TabellaColonne } from './tabella-colonne';
 
 @Component({
-selector: 'europcar-tabella',
-templateUrl: './tabella.component.html',
-styleUrls: ['./tabella.component.css']
+  selector: 'europcar-tabella',
+  templateUrl: './tabella.component.html',
+  styleUrls: ['./tabella.component.css']
 })
-export class TabellaComponent {
-@Input() data: any[] = [];
-@Input() colonne: TabellaColonne[] = [];
-@ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+export class TabellaComponent<T> implements OnChanges {
+  @Input() data: T[] = [];
+  @Input() columns: string[] = [];
 
-dataSource: MatTableDataSource<any>;
-displayedColumns: string[] = this.colonne.map(colonne => colonne.field); // Aquí se define la propiedad para mostrar las columnas
+  dataSource!: MatTableDataSource<T>;
+  displayedColumns: string[] = [];
+  
+  @ContentChildren(button)
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
-constructor() {
-this.dataSource = new MatTableDataSource<any>(this.data);
-}
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
-ngAfterViewInit() {
-this.dataSource.paginator = this.paginator;
-this.paginator.pageSize = 25; // Se establece el tamaño de página por defecto en 25
-}
+  ngOnChanges() {
+    this.dataSource = new MatTableDataSource<T>(this.data);
+    this.displayedColumns = this.columns;
+  }
 }

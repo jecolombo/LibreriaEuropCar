@@ -16,9 +16,5 @@ export class AppComponent {
     { id: 6, name: 'Bob Johnson', age: 40 },
   ];
 
-  tableColumns: any[] = [
-    { header: 'ID', field: 'id' },
-    { header: 'Name', field: 'name' },
-    { header: 'Age', field: 'age' },
-  ];
+  tableColumns: string[] = ['id', 'name', 'age'];
 }

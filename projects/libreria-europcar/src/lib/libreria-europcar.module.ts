@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { TabellaComponent } from './tabella/tabella.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -15,12 +16,16 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   imports: [
     CommonModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatIconModule 
   ],
   exports: [
     LibreriaEuropcarComponent,
     ButtonComponent,
-    TabellaComponent
+    TabellaComponent,
+    MatTableModule,
+    MatPaginatorModule,
+    MatIconModule
   ]
 })
 export class LibreriaEuropcarModule { }
