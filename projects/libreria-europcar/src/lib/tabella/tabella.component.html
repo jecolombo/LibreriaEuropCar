@@ -1,20 +1,20 @@
 <div class="container">
   <mat-table [dataSource]="dataSource">
   
-    <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column" style="width: min-content;">
+    <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
       <div *ngIf="column!=='modifica'&&column!=='elimina'">
         <mat-header-cell *matHeaderCellDef>{{ column | titlecase }}</mat-header-cell>
         <mat-cell *matCellDef="let element">{{ element[column] }}</mat-cell>
       </div>
-      <div *ngIf="column==='modifica'" >
+      <div *ngIf="column==='modifica'" class="buttons">
         <mat-header-cell *matHeaderCellDef> </mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <mat-icon class="iconButton" matTooltip="Modifica" color="primary" >edit</mat-icon>
+          <mat-icon class="iconButton" matTooltip="Modifica" color="primary" routerLink="modificaRouterLink">edit</mat-icon>
         </mat-cell>
       </div>
-      <div *ngIf="column==='elimina'" >
+      <div *ngIf="column==='elimina'" class="buttons">
         <mat-header-cell *matHeaderCellDef> </mat-header-cell>
-        <mat-cell *matCellDef="let element" >
+        <mat-cell *matCellDef="let element">
           <mat-icon class="iconButton" matTooltip="Elimina" color="warn" (click)="onElimina(element)">delete</mat-icon>
         </mat-cell>
       </div>
