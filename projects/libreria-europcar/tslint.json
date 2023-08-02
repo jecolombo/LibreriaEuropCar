@@ -5,12 +5,14 @@
         true,
         "attribute",
         "europcar-button",
+        "europcar-tabella",
         "camelCase"
       ],
       "component-selector": [
         true,
         "element",
         "europcar-button",
+        "europcar-tabella",
         "kebab-case"
       ]
     }
