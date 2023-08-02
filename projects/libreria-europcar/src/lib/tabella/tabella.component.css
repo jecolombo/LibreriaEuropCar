@@ -1,3 +1,25 @@
-*{
-    font-style: black;
+div{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 70vw;
+}
+.mat-paginator{
+    justify-content: center !important;
+}
+.buttons{
+    width: 1%;
+
+}
+mat-cell{
+    width: 20px;
+}
+.iconButton {
+    cursor: pointer;
+    transition: linear 0.2s;
+}
+
+.iconButton:hover {
+    scale: 1.2;
+    text-shadow: 1px 1px 8px;
 }

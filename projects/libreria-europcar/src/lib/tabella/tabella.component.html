@@ -1,10 +1,28 @@
-<mat-table [dataSource]="dataSource">
-  <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
-    <mat-header-cell *matHeaderCellDef>{{ column }}</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element[column] }}</mat-cell>
-  </ng-container>
-
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-</mat-table>
-<mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+<div class="container">
+  <mat-table [dataSource]="dataSource">
+  
+    <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column" style="width: min-content;">
+      <div *ngIf="column!=='modifica'&&column!=='elimina'">
+        <mat-header-cell *matHeaderCellDef>{{ column | titlecase }}</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element[column] }}</mat-cell>
+      </div>
+      <div *ngIf="column==='modifica'" >
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-icon class="iconButton" matTooltip="Modifica" color="primary" >edit</mat-icon>
+        </mat-cell>
+      </div>
+      <div *ngIf="column==='elimina'" >
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let element" >
+          <mat-icon class="iconButton" matTooltip="Elimina" color="warn" (click)="onElimina(element)">delete</mat-icon>
+        </mat-cell>
+      </div>
+    </ng-container>
+    
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons></mat-paginator>
+  
+</div>

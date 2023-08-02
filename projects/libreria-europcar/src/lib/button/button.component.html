@@ -1,1 +1,2 @@
-<button [ngClass]="type">{{ label || type}}</button>
+<button [ngClass]="type" *ngIf="!icon">{{ label || type}}</button>
+<mat-icon *ngIf="icon" class="iconButton" matTooltip="label" [color]="color">{{icon}}</mat-icon>

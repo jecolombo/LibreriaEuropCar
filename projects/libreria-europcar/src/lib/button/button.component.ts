@@ -8,10 +8,19 @@ import { Component, Input } from '@angular/core';
 export class ButtonComponent {
   @Input() type: string='default';
   @Input() label!: string;
-
+  @Input() icon:string = '';
+  @Input() color:string='';
+  
   ngOnInit() {
     if (!this.label) {
       this.label = this.toTitleCase(this.type);
+    }
+    if(this.type === 'modifica'){
+      this.icon = 'edit';
+      this.color = 'primary';
+    }else if(this.type === 'elimina'){
+      this.icon = 'delete'
+      this.color = 'warn'
     }
   }
   toTitleCase(input: string): string {

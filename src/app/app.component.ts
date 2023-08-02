@@ -17,4 +17,7 @@ export class AppComponent {
   ];
 
   tableColumns: string[] = ['id', 'name', 'age'];
+  eliminarElemento(element: any) {
+    console.log('Eliminando elemento:', element);
+  }
 }

@@ -6,6 +6,8 @@ import { TabellaComponent } from './tabella/tabella.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon'
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { MatIconModule } from '@angular/material/icon'
     CommonModule,
     MatTableModule,
     MatPaginatorModule,
-    MatIconModule 
+    MatIconModule ,
+    MatTooltipModule,
+    RouterModule
   ],
   exports: [
     LibreriaEuropcarComponent,
@@ -25,7 +29,9 @@ import { MatIconModule } from '@angular/material/icon'
     TabellaComponent,
     MatTableModule,
     MatPaginatorModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule,
+    RouterModule
   ]
 })
 export class LibreriaEuropcarModule { }
